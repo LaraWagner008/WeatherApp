@@ -1,1 +1,1 @@
-![WeatherApp](screen.png)
+![WeatherApp](images/screen.png)
