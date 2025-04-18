@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прогноз погоды</title>
+    <link rel="icon" type="image/png" href="C:\Users\Lara Wagner\Desktop\WeatherApp\images\icon.png">
+    <link rel="stylesheet" href="WeatherApp.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Погода</h1>
+        <div class="search-container">
+            <input type="text" id="city-input" placeholder="Введите город">
+            <button id="search-btn">Поиск</button>
+        </div>
+        
+        <div class="weather-info" id="weather-info">
+        </div>
+
+        <div id="weekly-forecast" class="weekly-forecast"></div>
+        <!-- Контейнер для погоды на неделю -->
+        <!-- <div class="weather-week" id="weather-week">
+            <div class="monday"></div>
+            <div class="tuesday"></div>
+            <div class="wednesday"></div>
+            <div class="thursday"></div>
+            <div class="friday"></div>
+            <div class="saturday"></div>
+            <div class="sunday"></div>
+        </div>
+        -->
+    </div>
+
+    <script src="WeatherApp.js"></script>
+</body>
+</html>

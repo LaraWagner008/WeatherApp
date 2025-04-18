@@ -1,0 +1,345 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #5AC8FA 0%, #35186A 100%);
+    min-height: 100vh;
+    padding: 10px;
+    color: #F2EBC7;
+}
+
+.container {
+    max-width: 660px;
+    margin: 0 auto;
+    background: rgba(52, 54, 66, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    border: 2px solid #F22259;
+    
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    color: #F2EBC7;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 10px 0 0 10px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(242, 235, 199, 0.9);
+    color: #343642;
+}
+
+.cities-dropdown {
+    display: none;
+    position: absolute;
+    width: calc(100% - 60px);
+    max-width: 600px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: rgba(242, 235, 199, 0.95);
+    border: 1px solid #348899;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    margin-top: 40px;
+    padding: 8px 0;
+    border-radius: 0 0 8px 8px;
+}
+
+.city-item {
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #343642;
+}
+
+.city-item:hover {
+    background-color: rgba(52, 136, 153, 0.2);
+}
+
+button {
+    padding: 15px 10px;
+    background: #F22259;
+    color: #F2EBC7;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background: #D01E4E;
+}
+
+.weather-info {
+    text-align: center;
+}
+
+.city {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 10px;
+    color: #F2EBC7;
+}
+
+.temp {
+    font-size: clamp(2.5rem, 8vw, 3rem);
+    font-weight: bold;
+    margin: 20px 0;
+    color: #F2EBC7;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.description {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 20px;
+    text-transform: capitalize;
+    color: #F2F0D5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.details {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+.detail-item {
+    background: rgba(151, 156, 156, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 5px;
+    min-width: 120px;
+    color: #F2EBC7;
+    border: 1px solid #EFD8A1;
+    flex: 1 1 120px;
+}
+
+.weather-icon {
+    width: clamp(80px, 18vw, 120px);
+    height: auto;
+    margin: auto;
+    filter: drop-shadow(0 0 8px rgba(52, 136, 153, 0.5));
+}
+
+.weekly-forecast {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 15px;
+    scrollbar-width: none;
+    background: rgba(151, 156, 156, 0.1);
+    border-radius: 15px;
+    border: 2px dashed #EFD8A1;
+}
+
+.forecast-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #F2EBC7;
+    min-width: 60px;
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.day-desc {
+    font-size: clamp(0.45rem, 2vw, 0.8rem);
+    text-align: center;
+    margin-top: 5px;
+}
+
+.error {
+    color: #962D3E;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    background: rgba(150, 45, 62, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .cities-dropdown {
+        width: calc(100% - 40px);
+    }
+    
+    .weekly-forecast {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    input, button {
+        padding: 12px;
+    }
+    
+    .detail-item {
+        min-width: 100px;
+        padding: 10px;
+    }
+    
+    .weekly-forecast {
+        gap: 8px;
+    }
+}
+@media (max-aspect-ratio: 9/16) {
+    .container {
+        padding: 20px 15px;
+        min-height: 90vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .weather-info {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    .temp {
+        font-size: clamp(2.2rem, 10vw, 3rem);
+        margin: 2vh 0;
+    }
+    
+    .details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        margin: 2vh 0;
+    }
+    
+    .weekly-forecast {
+        margin-top: auto;
+        padding: 12px 8px;
+        gap: 12px;
+    }
+    
+    .forecast-day {
+        min-width: 60px;
+        font-size: 0.8rem;
+    }
+    
+    .day-desc {
+        font-size: 0.6rem;
+    }
+}
+
+/*для планшета*/
+@media only screen and (min-device-width: 834px) and (max-device-width: 1366px),
+       only screen and (min-device-width: 1024px) and (max-device-height: 1366px) {
+    .container {
+        max-width: 800px;
+        padding: 40px;
+    }
+    
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 25px;
+    }
+    
+    .temp {
+        font-size: 4.5rem;
+        margin: 30px 0;
+    }
+    
+    .details {
+        grid-template-columns: repeat(3, minmax(180px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+    }
+    
+    .weather-icon {
+        width: 160px;
+    }
+    
+    .weekly-forecast {
+        gap: 40px;
+        padding: 25px 20px;
+    }
+    
+    .forecast-day {
+        min-width: 100px;
+        font-size: 1.1rem;
+    }
+    
+    .day-desc {
+        font-size: 0.9rem;
+    }
+}
+
+/* Оптимизация только для ноутбуков */
+@media (min-width: 992px) and (max-height: 800px) {
+    .container {
+        max-width: 580px;
+        padding: 25px;
+        margin: 15px auto;
+    }
+    
+    h1 {
+        margin-bottom: 5px;
+    }
+    
+    .temp {
+        margin: 12px 0;
+        font-size: 2.7rem;
+    }
+    
+    .description {
+        margin-bottom: 15px;
+    }
+    
+    .details {
+        margin: 8px 0;
+    }
+    
+    .weekly-forecast {
+        padding: 12px 15px;
+    }
+    
+    .weather-icon {
+        width: 90px;
+    }
+}
+
+/* Дополнительная оптимизация для маленьких ноутбуков (1366x768) */
+@media (min-width: 992px) and (max-height: 768px) {
+    .container {
+        max-width: 540px;
+        padding: 20px;
+    }
+    
+    .temp {
+        font-size: 2.5rem;
+    }
+    
+    .detail-item {
+        padding: 10px;
+    }
+}
