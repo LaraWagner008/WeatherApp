@@ -52,7 +52,7 @@ input {
     display: none;
     position: absolute;
     width: calc(100% - 60px);
-    max-width: 600px;
+    max-width: 430px;
     max-height: 300px;
     overflow-y: auto;
     background: rgba(242, 235, 199, 0.95);
@@ -186,7 +186,7 @@ button:hover {
     }
     
     .cities-dropdown {
-        width: calc(100% - 40px);
+        width: calc(100% - 100px);
     }
     
     .weekly-forecast {
@@ -206,6 +206,10 @@ button:hover {
     
     .weekly-forecast {
         gap: 8px;
+    }
+
+    .weather-icon {
+        width: 120px;
     }
 }
 @media (max-aspect-ratio: 9/16) {
@@ -252,10 +256,9 @@ button:hover {
 }
 
 /*для планшета*/
-@media only screen and (min-device-width: 834px) and (max-device-width: 1366px),
-       only screen and (min-device-width: 1024px) and (max-device-height: 1366px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .container {
-        max-width: 800px;
+        max-width: 700px;
         padding: 40px;
     }
     
@@ -263,7 +266,11 @@ button:hover {
         font-size: 3.5rem;
         margin-bottom: 25px;
     }
-    
+
+    .cities-dropdown {
+        max-width: 550px;
+    }
+           
     .temp {
         font-size: 4.5rem;
         margin: 30px 0;
